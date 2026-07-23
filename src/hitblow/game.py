@@ -19,6 +19,7 @@ def play(digits=3):
     greeting()
 
     tries = 0
+    max_tries = 10
     while True:
         guess = input("予想 > ").strip()
 
@@ -41,4 +42,8 @@ def play(digits=3):
             from .score import evaluate_score
             print(evaluate_score(tries))
             print(f"正解！ {tries} 回で当たり（答え {secret}）")
+            break
+        if tries >= max_tries:
+            print(f"\nゲームオーバー！ 制限回数（{max_tries}回）に達しました。")
+            print(f"正解は {secret} でした！")
             break
